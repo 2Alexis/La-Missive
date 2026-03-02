@@ -1,5 +1,5 @@
 import ScrollReveal from '../animations/ScrollReveal';
-import SponsorAd from './SponsorAd';
+import AdSense from './AdSense';
 import './SneakPeek.css';
 
 export default function SneakPeek() {
@@ -59,7 +59,7 @@ export default function SneakPeek() {
 
                     <div className="sneak-peek__sidebar">
                         <ScrollReveal delay={0.3}>
-                            <SponsorAd variant="sidebar" />
+                            <AdSense adSlot="SLOT_SIDEBAR" adFormat="rectangle" className="adsense--sidebar" />
                         </ScrollReveal>
                     </div>
                 </div>

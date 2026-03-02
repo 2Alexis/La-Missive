@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import BlurReveal from '../components/animations/BlurReveal';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import './ArticlePage.css';
+import AdSense from '../components/sections/AdSense';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -272,26 +273,8 @@ export default function ArticlePage() {
                                 </div>
                             )}
 
-                            {/* Sponsor Ad */}
-                            <a
-                                href="https://www.notion.so"
-                                target="_blank"
-                                rel="noopener noreferrer sponsored"
-                                className="sponsor-card article-page__sponsor"
-                                id="article-sponsor"
-                            >
-                                <span className="sponsor-label">Sponsorisé</span>
-                                <img
-                                    src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=340&fit=crop&q=80"
-                                    alt="Notion — Votre espace de travail tout-en-un"
-                                    className="sponsor-card__image"
-                                />
-                                <h4 className="sponsor-card__title">Notion — Tout-en-un pour vos projets</h4>
-                                <p className="sponsor-card__desc">
-                                    Organisez vos notes, projets et documents dans un seul outil. Essai gratuit pour les créateurs.
-                                </p>
-                                <span className="sponsor-card__link">Découvrir Notion →</span>
-                            </a>
+                            {/* Google AdSense */}
+                            <AdSense adSlot="SLOT_ARTICLE" adFormat="rectangle" className="adsense--article" />
 
                             <div className="article-page__newsletter-cta">
                                 <h3>Ne ratez rien</h3>

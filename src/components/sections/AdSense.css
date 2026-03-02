@@ -1,0 +1,50 @@
+/* ========================================
+   Google AdSense — Styles
+   ======================================== */
+
+.adsense-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--color-sage-light, #f5f3ef);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: var(--space-sm, 8px);
+}
+
+.adsense-label {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted, #999);
+    text-align: center;
+    margin-bottom: var(--space-xs, 4px);
+    font-family: var(--font-sans, sans-serif);
+}
+
+/* Horizontal banner — landing page */
+.adsense--horizontal {
+    max-width: var(--max-width, 1200px);
+    margin: var(--space-2xl, 48px) auto;
+    min-height: 100px;
+}
+
+/* Sidebar — sneak peek & article page */
+.adsense--sidebar {
+    min-height: 250px;
+}
+
+/* In-article — inside article content */
+.adsense--article {
+    margin: var(--space-xl, 32px) 0;
+    min-height: 250px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .adsense--horizontal {
+        min-height: 80px;
+        margin: var(--space-xl, 32px) auto;
+    }
+}

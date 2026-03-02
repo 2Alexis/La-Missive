@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import HeroSection from './components/sections/HeroSection'
 import SocialProof from './components/sections/SocialProof'
-import SponsorAd from './components/sections/SponsorAd'
+import AdSense from './components/sections/AdSense'
 import FeaturesSection from './components/sections/FeaturesSection'
 import SneakPeek from './components/sections/SneakPeek'
 import NewsSection from './components/sections/NewsSection'
@@ -16,7 +16,7 @@ function LandingPage() {
       <HeroSection />
       <SocialProof />
       <div className="container">
-        <SponsorAd variant="horizontal" />
+        <AdSense adSlot="SLOT_HORIZONTAL" adFormat="horizontal" className="adsense--horizontal" />
       </div>
       <FeaturesSection />
       <SneakPeek />
