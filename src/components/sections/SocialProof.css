@@ -1,0 +1,24 @@
+.social-proof {
+    background-color: var(--color-ink);
+    padding: var(--space-lg) 0;
+    overflow: hidden;
+}
+
+.social-proof__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+.social-proof__dot {
+    color: var(--color-accent);
+    font-size: var(--text-lg);
+}

@@ -1,0 +1,48 @@
+.sponsor--horizontal {
+    padding: var(--space-2xl) 0;
+}
+
+.sponsor--horizontal .sponsor-card {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.sponsor-card__layout--row {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.sponsor-card__layout--row .sponsor-card__img-wrap {
+    flex: 0 0 280px;
+}
+
+.sponsor-card__layout--row .sponsor-card__body {
+    flex: 1;
+    padding-right: var(--space-3xl);
+}
+
+.sponsor--sidebar .sponsor-card {
+    background: var(--color-sage-light);
+}
+
+.sponsor--sidebar .sponsor-card__img-wrap {
+    margin-bottom: var(--space-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sponsor-card__layout--row {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .sponsor-card__layout--row .sponsor-card__img-wrap {
+        flex: none;
+        width: 100%;
+    }
+
+    .sponsor-card__layout--row .sponsor-card__body {
+        padding-right: 0;
+    }
+}
