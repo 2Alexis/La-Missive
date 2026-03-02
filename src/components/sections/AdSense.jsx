@@ -42,7 +42,7 @@ export default function AdSense({
                 ref={adRef}
                 className="adsbygoogle"
                 style={style}
-                data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT || 'ca-pub-XXXXXXXXXXXXXXXX'}
+                data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT || 'ca-pub-8721500275070460'}
                 data-ad-slot={adSlot}
                 data-ad-format={adFormat}
                 data-ad-layout={adLayout || undefined}
