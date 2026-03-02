@@ -12,7 +12,8 @@ import {
     getAllThreads,
     addThread,
     getRepliesByThreadId,
-    addReply
+    addReply,
+    getNewsForSitemap
 } from './database.js';
 
 const app = express();
@@ -138,6 +139,62 @@ app.post('/api/community/threads/:id/replies', (req, res) => {
     } catch {
         res.status(500).json({ error: 'Erreur serveur.' });
     }
+});
+
+// ============================================================
+// URL du site — À MODIFIER avec votre vrai domaine en production
+// ============================================================
+const SITE_URL = 'https://lamissive.com';
+
+// --- Sitemap dynamique ---
+app.get('/sitemap.xml', (_req, res) => {
+    const today = new Date().toISOString().split('T')[0];
+
+    // Pages statiques du site
+    const staticPages = [
+        { loc: '/', changefreq: 'weekly', priority: '1.0' },
+        { loc: '/actualites', changefreq: 'daily', priority: '0.8' },
+    ];
+
+    // ──────────────────────────────────────────────────────────
+    // 🔌 BRANCHEMENT BASE DE DONNÉES
+    // La fonction getNewsForSitemap() retourne tous les articles
+    // depuis la table `news` (id + created_at).
+    // Si tu changes de source de données (CMS, API externe…),
+    // remplace simplement cet appel par ta propre fonction.
+    // ──────────────────────────────────────────────────────────
+    const articles = getNewsForSitemap();
+
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+    // Génération des pages statiques
+    for (const page of staticPages) {
+        xml += '  <url>\n';
+        xml += `    <loc>${SITE_URL}${page.loc}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+        xml += `    <priority>${page.priority}</priority>\n`;
+        xml += '  </url>\n';
+    }
+
+    // Génération dynamique des pages articles
+    for (const article of articles) {
+        const lastmod = article.created_at
+            ? article.created_at.split('T')[0].split(' ')[0]
+            : today;
+        xml += '  <url>\n';
+        xml += `    <loc>${SITE_URL}/actualites/${article.id}</loc>\n`;
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
+        xml += '    <changefreq>monthly</changefreq>\n';
+        xml += '    <priority>0.6</priority>\n';
+        xml += '  </url>\n';
+    }
+
+    xml += '</urlset>';
+
+    res.set('Content-Type', 'application/xml');
+    res.send(xml);
 });
 
 app.listen(PORT, () => {

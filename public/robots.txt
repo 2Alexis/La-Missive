@@ -1,0 +1,8 @@
+# robots.txt — La Missive
+# Autorise tous les bots à indexer l'ensemble du site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lamissive.com/sitemap.xml

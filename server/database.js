@@ -240,4 +240,9 @@ export const addReply = (threadId, author, content) => {
   return stmt.run(threadId, author, content);
 };
 
+// Sitemap — retourne uniquement id + created_at pour chaque article
+export const getNewsForSitemap = () => {
+  return db.prepare('SELECT id, created_at FROM news ORDER BY created_at DESC').all();
+};
+
 export default db;
