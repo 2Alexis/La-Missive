@@ -32,6 +32,7 @@ app.use(cors({
     origin: [
         /^http:\/\/localhost:\d+$/,
         'https://lamissive.vercel.app',
+        'https://la-missive.vercel.app',
         /\.vercel\.app$/
     ]
 }));
