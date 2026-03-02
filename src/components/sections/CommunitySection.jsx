@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ScrollReveal from '../animations/ScrollReveal';
 import './CommunitySection.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function CommunitySection() {
     const [threads, setThreads] = useState([]);

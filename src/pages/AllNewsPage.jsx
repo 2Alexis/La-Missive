@@ -4,7 +4,7 @@ import BlurReveal from '../components/animations/BlurReveal';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import './AllNewsPage.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function AllNewsPage() {
     const [news, setNews] = useState([]);

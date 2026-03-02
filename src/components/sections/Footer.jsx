@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ScrollReveal from '../animations/ScrollReveal';
 import './Footer.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function Footer() {
     const [email, setEmail] = useState('');

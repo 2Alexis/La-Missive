@@ -4,7 +4,7 @@ import ScrollReveal from '../animations/ScrollReveal';
 import MagneticButton from '../animations/MagneticButton';
 import './HeroSection.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function HeroSection() {
     const [email, setEmail] = useState('');
