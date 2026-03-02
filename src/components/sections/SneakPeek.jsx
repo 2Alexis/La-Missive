@@ -51,7 +51,7 @@ export default function SneakPeek() {
                                     </div>
                                 </div>
                                 <div className="sneak-peek__card-footer">
-                                    <span>Lire la suite dans votre boîte mail →</span>
+                                    <a href="#hero" className="sneak-peek__card-cta">S'inscrire pour recevoir la suite →</a>
                                 </div>
                             </div>
                         </div>
