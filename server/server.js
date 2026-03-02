@@ -16,6 +16,7 @@ import {
     addReply,
     getNewsForSitemap
 } from './database.js';
+import { sendWelcomeEmail } from './email.js';
 
 dotenv.config();
 
@@ -47,6 +48,8 @@ app.post('/api/subscribe', async (req, res) => {
     try {
         await addSubscriber(email);
         res.json({ success: true, message: 'Inscription réussie ! Bienvenue.' });
+        // Envoi de l'email de bienvenue (non-bloquant)
+        sendWelcomeEmail(email).catch(err => console.error('Email error:', err));
     } catch (err) {
         if (err.message?.includes('duplicate') || err.code === '23505') {
             return res.status(409).json({ error: 'Cet email est déjà inscrit.' });
